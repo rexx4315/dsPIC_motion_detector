@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>dsPIC_motion_detect</name>
+            <name>correlationDetector</name>
+            <name>sampleFIR</name>
+            <name>scrambler</name>
+            <name>power</name>
+            <name>arithmetic</name>
+            <name>tone2</name>
+            <name>tone1</name>
+            <name>blinkInterrupt</name>
+            <name>example_blinky_led</name>
+            <creation-uuid>6882693e-8b7c-4f0a-bc13-1d16f7bff62c</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>.</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/default/debug/dsPIC_motion_detect.X.debug.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>16384</length>
+      <used>4960</used>
+      <free>11424</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>261888</length>
+      <used>7188</used>
+      <free>254700</free>
+    </memory>
+  </executable>
+</project>
