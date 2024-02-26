@@ -5,7 +5,7 @@
 * FileName:        main.c
 * Dependencies:    Header (.h) files if applicable, see below
 * Processor:       dsPIC33FJ256GP506
-* Compiler:        MPLAB® C30 v3.00 or higher
+* Compiler:        MPLABï¿½ C30 v3.00 or higher
 *
 * Description: this is the main.c file for an motion detector developed
 *              using the dsPIC DSC Starter Kit. It contains the state
@@ -58,19 +58,6 @@ unsigned int rx_count = 0;
 unsigned short int timerCount;
 extern unsigned int timerFlag;
 
-extern unsigned int dataReady;
-
-
-
-signed short int refEnergy;
-signed short int sigEnergy;
-signed short int nrmEnergy;
-
-signed long int runningSumCor;
-signed long int runningSumEnergy;
-
-
-
 int main(void)
 {
 	short unsigned int n; // Working variable.
@@ -110,16 +97,17 @@ int main(void)
                 // Init / enable the DMA
                 dmaInit();
                 
-                // Generate TX waveform
+                // Generate TX waveform, 1000 Hz
                 txSigGen(1000);
 
                 // Set next state, break
                 n_state = S_ECHO;
                 break;
 
-            // In the echo state, we do not have to do anything - everything is handled
-            // by the DMA. We wait for the RX flag to go high, pause the DMA, then transition
-            // to process
+            // We ultimately want a rx signal that has 1200 samples, but we get the
+            // samples one by one from the DMA. In the S_ECHO state, we store samples
+            // into either rxSignal_xmem or _ymem, whichever is older. Once we get 1200,
+            // we transition states to S_PROC;
             case (S_ECHO):
 
                 if (rxFlag == 1) {
@@ -139,7 +127,11 @@ int main(void)
 
                     // Check rx count
                     if (rx_count < RX_SIG_SIZE) {
+                        
+                        // Not done, increment count and stay
+                        // in this state
                         rx_count++;
+                        
                     }
                     else {
 
